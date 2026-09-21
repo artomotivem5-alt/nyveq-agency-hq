@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg-void: #07070a;
+  --bg-surface: #0c0b13;
+  --bg-elevated: #12111c;
+  --accent-purple: #8b5cf6;
+  --accent-purple-glow: rgba(139, 92, 246, 0.15);
+  --border-subtle: #1e1c2b;
+  --border-focus: #7c3aed;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-void);
+  color: #f4f4f5;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+/* Arabic typography class for 0.01% luxury geometric architectural editorial rendering */
+.font-ar {
+  font-family: 'Alexandria', 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.015em;
+  line-height: 2.2;
+  font-feature-settings: "cv01", "ss01";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-ar-tight {
+  font-family: 'Alexandria', 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  line-height: 1.8;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.luxury-card-spacious {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card-spacious:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+  background-color: var(--bg-elevated);
+}
+
+/* Hairline borders & noble gold glow (converted to purple) */
+.border-hairline {
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.luxury-gold-glow {
+  box-shadow: 0 0 35px -5px var(--accent-purple-glow);
+}
+
+.luxury-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  background-color: var(--bg-elevated);
+}
+
+/* Custom Scrollbar for sleek dark feel */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple);
+}
+
+/* Custom selection */
+::selection {
+  background-color: var(--accent-purple);
+  color: #fff;
+}
+
+/* Living Ambient Animations */
+@keyframes ambientBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.45;
+  }
+}
+
+@keyframes pulseButtonGlow {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.45), 0 0 50px rgba(124, 58, 237, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.7), 0 0 70px rgba(124, 58, 237, 0.35);
+  }
+}
+
+@keyframes shimmerBeam {
+  0% {
+    transform: translateX(-150%);
+  }
+  50%, 100% {
+    transform: translateX(150%);
+  }
+}
+
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.7;
+  }
+}
+
+.animate-breathe {
+  animation: ambientBreathe 7s ease-in-out infinite;
+}
+
+.animate-button-glow {
+  animation: pulseButtonGlow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmerBeam 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-float-slow {
+  animation: floatParticle 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatParticle 11s ease-in-out infinite 3s;
+}
+
+@keyframes cinematicDrift {
+  0%, 100% {
+    transform: scale(1.12) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.17) translate(-10px, -6px);
+  }
+}
+
+@keyframes portalBloom {
+  0%, 100% {
+    opacity: 0.35;
+    filter: blur(120px);
+  }
+  50% {
+    opacity: 0.65;
+    filter: blur(150px);
+  }
+}
+
+.animate-cinematic-drift {
+  animation: cinematicDrift 20s ease-in-out infinite;
+}
+
+.animate-portal-bloom {
+  animation: portalBloom 8s ease-in-out infinite;
+}
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #18181b !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+}
