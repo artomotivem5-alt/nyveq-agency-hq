@@ -12,7 +12,8 @@ import {
   Files,
   HelpCircle,
   X,
-  Target
+  Target,
+  Lock
 } from 'lucide-react';
 import { ViewMode } from '../../types';
 import { TEMPLATES_DATA } from '../../data/templatesData';
@@ -24,11 +25,15 @@ interface TopHeaderProps {
   onSelectView: (view: ViewMode) => void;
   showQuickAnswers: boolean;
   onToggleQuickAnswers: () => void;
+  onLogout?: () => void;
 }
 
 export const TopHeader: React.FC<TopHeaderProps> = ({
   activeView,
   onSelectView,
+  showQuickAnswers,
+  onToggleQuickAnswers,
+  onLogout,
 }) => {
   const [copiedScript, setCopiedScript] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -270,6 +275,18 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
           <Bell className="w-4 h-4" />
           <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[var(--accent-purple)] rounded-full border border-[#07070a]" />
         </button>
+
+        {/* Lock HQ / Logout Button */}
+        {onLogout && (
+          <button
+            onClick={onLogout}
+            title="Lock Console / Sign Out"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141220] hover:bg-rose-950/40 border border-[#2b273f] hover:border-rose-500/40 text-zinc-400 hover:text-rose-300 transition-all text-xs font-mono group cursor-pointer"
+          >
+            <Lock className="w-3.5 h-3.5 group-hover:text-rose-400 transition-colors" />
+            <span className="hidden sm:inline text-[10px] font-bold tracking-wider uppercase">Lock HQ</span>
+          </button>
+        )}
 
         {/* Subtle Divider */}
         <div className="w-px h-6 bg-[#1a1926]" />

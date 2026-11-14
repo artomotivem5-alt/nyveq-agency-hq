@@ -20,9 +20,10 @@ import { CallCockpit } from './components/views/CallCockpit';
 import { LoginView } from './components/views/LoginView';
 import { FounderExecutionView } from './components/views/FounderExecutionView';
 import { DEFAULT_PROPOSAL } from './data/defaultProposal';
+import { isAuthenticated, logout } from './utils/security';
 
 export function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(() => isAuthenticated());
   const [activeView, setActiveView] = useState<ViewMode>(() => {
     const hash = window.location.hash.replace('#/', '');
     if (hash === 'proposal-preview') return 'proposals-builder';
@@ -31,6 +32,12 @@ export function App() {
   });
 
   const [showQuickAnswers, setShowQuickAnswers] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    setIsLoggedIn(false);
+    window.location.hash = '#/login';
+  };
 
   // Check if standalone proposal route is accessed via hash #/proposal
   const isStandaloneProposal = window.location.hash.startsWith('#/proposal');
@@ -230,6 +237,7 @@ export function App() {
           onSelectView={handleSelectView}
           showQuickAnswers={showQuickAnswers}
           onToggleQuickAnswers={() => setShowQuickAnswers(!showQuickAnswers)}
+          onLogout={handleLogout}
         />
 
         {/* 10-Second Orientation Dropdown Panel */}
