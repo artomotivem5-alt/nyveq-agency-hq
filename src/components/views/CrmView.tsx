@@ -681,7 +681,7 @@ export const CrmView: React.FC<CrmViewProps> = ({ onSelectView }) => {
               </div>
 
               <button
-                onClick={() => window.open(sheetUrl, '_blank')}
+                onClick={() => window.open(sheetUrl, '_blank', 'noopener,noreferrer')}
                 className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-zinc-950 text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-md flex items-center gap-2 shrink-0 cursor-pointer"
               >
                 <span>Open Google Sheet</span>

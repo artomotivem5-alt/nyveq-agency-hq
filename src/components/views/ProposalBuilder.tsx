@@ -559,7 +559,7 @@ ${shareUrl}
                       <a
                         href={selectedCrmLead.instagram}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className="px-2.5 py-1.5 rounded-lg bg-[#24172a] hover:bg-[#341e3d] text-pink-300 font-mono text-[10px] font-bold border border-pink-500/30 flex items-center gap-1.5 transition-colors"
                       >
                         <Instagram className="w-3 h-3 text-pink-400" />
@@ -571,7 +571,7 @@ ${shareUrl}
                       <a
                         href={selectedCrmLead.website}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className="px-2.5 py-1.5 rounded-lg bg-[#14232c] hover:bg-[#1a3240] text-cyan-300 font-mono text-[10px] font-bold border border-cyan-500/30 flex items-center gap-1.5 transition-colors"
                       >
                         <Globe className="w-3 h-3 text-cyan-400" />
@@ -582,7 +582,7 @@ ${shareUrl}
                     <a
                       href={`https://www.google.com/search?q=${encodeURIComponent(selectedCrmLead.googleQuery || selectedCrmLead.company)}`}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="px-2.5 py-1.5 rounded-lg bg-[#171b26] hover:bg-[#202738] text-blue-300 font-mono text-[10px] font-bold border border-blue-500/30 flex items-center gap-1.5 transition-colors"
                     >
                       <Search className="w-3 h-3 text-blue-400" />

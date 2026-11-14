@@ -1,0 +1,3 @@
+# NYVEQ Sovereign Systems // Private Agency Operations
+User-agent: *
+Disallow: /
